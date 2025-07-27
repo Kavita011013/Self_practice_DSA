@@ -1,0 +1,113 @@
+ class Node
+    {
+        int coeff;
+        int pow;
+        Node next;
+        
+        Node(int c,int p)
+        {
+            coeff =c;
+            pow=p;
+            next=null;
+        }
+    }
+class LinkedList
+{
+    static Node head;
+   
+    
+    public static Node create( int[] arr1, int[] arr2)
+    {
+        Node start1 = null;
+        Node curr = null;
+        int n = arr1.length;
+        int i =0;
+         while(n-- > 0)
+         {
+             if(start1==null)
+             {
+                 start1= new Node(arr1[i], arr2[i]);
+                 curr = start1;
+             }
+             else
+             {
+                 curr.next = new Node(arr1[i],arr2[i]);
+                 curr = curr.next;
+             }
+             i++;
+         }
+         return start1;
+    }
+    
+    public static Node addPoly(Node list1, Node list2)
+    {
+        Node s1 = list1;
+        Node s2 = list2;
+        Node result = new Node(0,0);
+        Node c = result;
+        while (s1 !=null || s2 != null)
+        {
+            if (s1 == null)
+            {
+                c.next = s2;
+                break;
+            }
+            else if ( s2 == null)
+            {
+                c.next = s1;
+                break;
+            }
+            else if( s1.pow == s2.pow)
+            {
+                c.next = new Node ( s1.coeff+s2.coeff, s1.pow);
+                
+                s1 = s1.next;
+                s2 = s2.next;
+            }
+            else if ( s1.pow> s2.pow)
+            {
+                c.next = new Node(s1.coeff,s1.pow);
+                s1 = s1.next;
+            }
+            else if( s1.pow < s2.pow)
+            {
+                c.next = new Node(s2.coeff,s2.pow);
+                s2= s2.next;
+            }
+            c = c.next;
+        }
+        return result.next;
+    }
+    
+    public static void print(Node n)
+    {
+        Node curr = n;
+        if( n != null)
+        {
+            while ( curr != null)
+            {
+                System.out.println(curr.coeff+"x^"+curr.pow);
+                curr = curr.next;
+            }
+        }
+        else
+        {
+            System.out.println("LL is empty");
+        }
+    }
+}
+class main {
+    public static void main(String args[])
+    {
+        LinkedList list = new LinkedList();
+        
+        int[] arr1 ={5, 4, 2};
+        int[] arr2 ={2, 1, 0};
+        int[] arr3 ={-5, -5};
+        int[] arr4 ={1,0};
+        Node l1 =list.create(arr1,arr2);
+        Node l2 = list.create(arr3, arr4);
+        Node l3 = list.addPoly(l1,l2);
+        list.print(l3);
+    }
+}

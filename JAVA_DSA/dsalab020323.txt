@@ -1,0 +1,31 @@
+import java.util.*;
+class main{
+    static int[] selectionSort(int[] arr)
+    {
+        int n = arr.length;
+        for (int i =0; i<n-1;i++)
+        {
+            int min =i;
+            for(int j =i+1; j<n;j++)
+            {
+                if(arr[j]<arr[min])
+                min=j;
+            }
+                if(min!=i)
+                {
+                    int temp = arr[i];
+                    arr[i]= arr[min];
+                    arr[min]= temp;
+                }
+            }
+        
+        return arr;
+    }
+    public static void main(String[] args)
+    {
+        int[] a={7,4,10,8,3,1};
+        int[] b ={64, 58, 98, 25, 79, 12, 22, 11, 33, 46};
+        System.out.println(Arrays.toString(selectionSort(a)));
+           System.out.println(Arrays.toString(selectionSort(b)));
+    }
+}

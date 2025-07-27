@@ -1,0 +1,10 @@
+Fat exam
+Module 3 and 5 has more weightage n all topics are important
+
+1 sorting algorithm + pesudocode (no bubble sort n quick) prove this by using proof of correctness
+
+Module 4 --> only greedy and Dynamic knapsack ( no brute force)
+
+Module 2 --> no array
+
+Module -6 --> less weightage she has uploaded 2 ques one ques will come for exam 10 mark question

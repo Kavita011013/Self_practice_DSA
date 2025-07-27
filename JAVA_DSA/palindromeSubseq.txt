@@ -1,0 +1,153 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.Dictionary;
+import java.util.Hashtable;
+class HelloWorld {
+    public static void main(String[] args) {
+        String s = "bbcbaba";
+        String s1="";
+        int end =0;
+        int start =0;
+        Dictionary<String, Integer> dict1 = new Hashtable<>();
+        int count=0;
+        int ans =0;
+        int ans1=0;
+        for(int i = s.length()-1;i>0;i--)
+        {
+             start =i;
+             s1="";
+            if(s.charAt(i) !=s.charAt(i-1))
+            {
+                if (i ==1)
+                break;
+                else{
+                if(s.charAt(i) ==s.charAt(i-2))
+                count++;
+                }
+            }
+            else
+            {
+                  end =i-1;
+            }
+            for(int k =end; k <start+1;k++)
+            s1 = s1+s.charAt(k);
+            count = start -end;
+             dict1.put(s1,count-1);
+        }
+        System.out.println("dict"+dict1);
+        System.out.println("count"+count);
+       
+        for(int j=0; j<dict1.size(); j++)
+        {
+            String myKey = dict1.keySet().toArray()[0];
+            int n = myKey.length();
+            if(myKey.charAt(0)== myKey.charAt(n-1))
+            {
+                if(ans>= ans1){
+                ans = dict1.get(myKey);
+                ans1 =ans;
+                }
+            }
+            
+        }
+// check the key which has first and last element same
+//  if same the value of this key is the ans
+// run the loop so as to find the key with value
+    }
+}
+
+
+
+
+
+/// edit at 02/03/23 09:21
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+import java.util.Dictionary;
+import java.util.Hashtable;
+import java.util.Enumeration;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.io.*;
+import java.util.Set;
+
+class main
+{
+    public static void main(String[] args) {
+        String s = "uuuuu";
+        String s1="";
+        int end =0;
+        int start =0;
+        Dictionary<String, Integer> dict1 = new Hashtable<>();
+        int count=0;
+        int ans =0;
+        int ans1=0;
+        for(int i = s.length()-1;i>0;i--)
+        {
+             start =i;
+             s1="";
+            if(s.charAt(i) !=s.charAt(i-1))
+            {
+                if (i ==1)
+                break;
+                else{
+                if(s.charAt(i) ==s.charAt(i-2))
+                count++;
+                }
+            }
+            else
+            {
+                  end =i-1;
+            }
+            for(int k =end; k <start+1;k++)
+            s1 = s1+s.charAt(k);
+            count = start -end;
+             dict1.put(s1,count-1);
+        }
+        System.out.println("dict"+dict1);
+        System.out.println("count"+count);
+        Enumeration enu = dict1.keys();
+        int k =0;
+        int[] arr= new int[dict1.size()];
+        //for(String key: keys)
+        while (enu.hasMoreElements()) {
+ 
+            // Displaying the Enumeration
+          
+            String myKey = enu.nextElement().toString();
+            System.out.println("mykey"+myKey);
+            int n = myKey.length();
+            if(myKey.charAt(0)== myKey.charAt(n-1))
+            {
+                System.out.println("inside the if condition");
+              //  if(ans>= ans1){
+                ans = dict1.get(myKey);
+                arr[k]=ans;
+                k++;
+                System.out.println("ans"+ans);
+               // ans1 =ans;
+                //}
+            }
+        }
+        int max = Arrays.stream(arr).max().getAsInt();
+          System.out.println("max"+max);
+       /*{
+           String myKey = dict1.keySet();
+            System.out.println("mykey"+myKey);
+            int n = myKey.length();
+            if(myKey.charAt(0)== myKey.charAt(n-1))
+            {
+                if(ans>= ans1){
+                ans = dict1.get(myKey);
+                
+                ans1 =ans;
+                }
+            }
+            
+        }*/
+       
+        
+    }
+
+}
